@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--级联赋值-->
+    <bean id="emp" class="com.atguigu.spring5.Bean.Emp">
+        <!--设置两个普通属性-->
+        <property name="pnaem" value="mdy"></property>
+        <property name="gender" value="man"></property>
+        <!--级联赋值-->
+        <property name="dept" ref="dept"></property>
+        <property name="dept.dname" value="Java技术员"></property><!--第二种写法 :需要再emp中生成Dept的get方法-->
+    </bean>
+    <bean id="dept" class="com.atguigu.spring5.Bean.Dept">
+        <property name="dname" value="Java工程师"></property>
+    </bean>
+</beans>
